@@ -6,4 +6,10 @@ class User < ApplicationRecord
   has_many :information
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # Method combines users first and last name
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

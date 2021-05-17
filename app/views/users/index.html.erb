@@ -1,4 +1,15 @@
 <h1>USERS</h1>
-<p>
-  <%= link_to "Profile", user_path(current_user) %>
-</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Available</th>
+  </tr>
+  <% @users.each do |user|%>
+  <tr>
+    <td><%= link_to user.full_name, user_path(user) %></td>
+    <% user.information.each do |info| %>
+        <td><%= info.available %></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
