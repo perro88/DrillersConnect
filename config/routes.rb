@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   patch '/jobs/:id', to: 'jobs#update'
   put 'jobs/:id', to: 'jobs#update'
   delete 'jobs/:id', to: 'jobs#destroy'
+ 
   get '/users', to: 'users#index', as: 'users'
   post '/users', to: 'users#create'
+  post '/users/become_employer', to: 'users#become_employer', as: 'employer'
   get '/jobs/new', to: 'users#new', as: 'new_user'
   get '/jobs/:id/edit', to: 'users#edit', as: 'edit_user'
   get '/users/:id', to: 'users#show', as: 'user'
