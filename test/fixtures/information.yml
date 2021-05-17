@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  availible: MyString
+  employer: MyString
+  location: MyString
+  summary: MyText
+  started: MyString
+  finished: MyString
+
+two:
+  user: two
+  availible: MyString
+  employer: MyString
+  location: MyString
+  summary: MyText
+  started: MyString
+  finished: MyString
