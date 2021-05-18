@@ -1,10 +1,10 @@
-<h1>Users@Something</h1>
+<h1>Profile Page</h1>
 <table>
   <tr>
     <th>Name</th>
-    <td><%= @user.full_name %></td>
+    <td><%= current_user.full_name %></td>
   </tr>
-  <% @user.information.each do |info| %>
+  <% current_user.information.each do |info| %>
   <tr>
     <th>Available</th>
     <td><%= info.available %></td>
@@ -31,3 +31,6 @@
   </tr>
   <% end %>
 </table>
+<p>
+  <%= link_to "Edit Profile Settings", edit_user_registration_path(current_user) %>
+</p>

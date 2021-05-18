@@ -1,1 +1,12 @@
 <h1>JOBS</h1>
+<h2>Current Listings</h2>
+<table>
+    <% @users.each do |user| %>
+    <% user.jobs.each do |list|%>
+  <tr>
+    <td> <%= link_to list.position, job_path(list)%></td>
+    <td> <%= list.place %> </td>
+  </tr>
+  <% end %>
+  <% end %>
+</table>

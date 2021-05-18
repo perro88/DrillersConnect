@@ -1,8 +1,12 @@
 # Jobs Page Controller
 class JobsController < ApplicationController
-  def index; end
+  def index
+    @users = User.all
+  end
 
-  def show; end
+  def show
+    @job = Job.find(params[:id])
+  end
 
   def new; end
 

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.current_user
+    @profile = User.all
   end
 
   def new; end
