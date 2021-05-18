@@ -2,10 +2,16 @@
 class UsersController < ApplicationController
 
   def index
-  @users = User.all
+    @users = User.all
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def profile
+    @user = User.current_user
+  end
 
   def new; end
 

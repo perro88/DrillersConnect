@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index', as: 'users'
   post '/users', to: 'users#create'
   post '/users/become_employer', to: 'users#become_employer', as: 'employer'
-  get '/jobs/new', to: 'users#new', as: 'new_user'
-  get '/jobs/:id/edit', to: 'users#edit', as: 'edit_user'
+  get 'users/:id/profile', to: 'users#profile', as: 'profile'
+
+  get '/users/new', to: 'users#new', as: 'new_user'
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   get '/users/:id', to: 'users#show', as: 'user'
   patch '/users/:id', to: 'users#update'
   put '/users/:id', to: 'users#update'
