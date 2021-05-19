@@ -8,7 +8,8 @@ class InformationController < ApplicationController
   end
 
   def create
-    @info = Information.new(profile_params)
+    @info = Information.new(info_params)
+    @info.user_id = current_user.id
     if @info.save
       redirect_to @info
     else
@@ -18,7 +19,7 @@ class InformationController < ApplicationController
 
   def edit
     info = User.find(current_user.id).information
-    @user = info[info.length - 1]
+    @info = info[info.length - 1]
   end
 
   def update
@@ -34,7 +35,7 @@ class InformationController < ApplicationController
 
   private
 
-  def profile_params
+  def info_params
     params.require(:information).permit(:available, :employer, :location, :summary, :finished, :started)
   end
 

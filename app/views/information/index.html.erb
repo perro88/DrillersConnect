@@ -4,11 +4,14 @@
     <th>Name</th>
     <td><%= current_user.full_name %></td>
   </tr>
-  <% current_user.information.each do |info| %>
+    <% current_user.information.reverse.each_with_index do |info, index| %>
+    <%# Only display Available on the most recent post %>
+    <% if index == 0 %>
   <tr>
     <th>Available</th>
     <td><%= info.available %></td>
   </tr>
+  <% end %>
   <tr>
     <th>Previous Employer</th>
     <td><%= info.employer %> </td>
