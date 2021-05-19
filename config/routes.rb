@@ -22,13 +22,13 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
 
   post '/users/become_employer', to: 'users#become_employer', as: 'employer'
-  
-  get '/profile', to: 'profile#index'
-  post '/profile', to: 'profile#create'
-  get '/profile/new', to: 'profile#new', as: 'new_profile'
-  get '/profile/edit', to: 'profile#edit', as: 'edit_profile'
-  get '/profile/:id', to: 'profile#show', as: 'show_profile'
-  patch '/profile/:id', to: 'profile#update'
-  put '/profile/:id', to: 'profile#update'
-  delete '/profile/:id', to: 'profile#destroy'
+
+  get '/information', to: 'information#index', as: 'information_index'
+  post '/information', to: 'information#create'
+  get '/information/new', to: 'information#new', as: 'new_information'
+  get '/information/edit', to: 'information#edit', as: 'edit_information'
+  get '/information/:id', to: 'information#show', as: 'show_information'
+  patch '/information/:id', to: 'information#update'
+  put '/information/:id', to: 'information#update'
+  delete '/information/:id', to: 'information#destroy'
 end

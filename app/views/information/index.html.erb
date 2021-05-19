@@ -32,8 +32,12 @@
   <% end %>
 </table>
 <div>
-  <%= link_to "Edit Previous Work History", edit_user_path%>
+  <%= link_to "Add New Work History", new_information_path %>
+</div>
+<div>
+  <%= link_to "Edit Current Work History", edit_information_path%>
 </div>
 <div>
   <%= link_to "Edit Profile Settings", edit_user_registration_path(current_user) %>
 </div>
+

@@ -1,0 +1,23 @@
+<%= form_with model: @info, local: true do |f| %>
+<p>
+<%= f.text_field :available, placeholder: "Currently Available"%>
+</p>
+<p>
+<%= f.text_field :employer, placeholder: "Previous Employer" %>
+</p>
+<p>
+<%= f.text_field :location, placeholder: "Location" %>
+</p>
+<p>
+  <%= f.text_area :summary, placeholder: "Summary of Job"%>
+</p>
+<p>
+<%= f.text_field :finished, placeholder: "Finished Date" %>
+</p>
+<p>
+<%= f.text_field :started, placeholder: "Start Date" %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
