@@ -1,39 +1,29 @@
 <h1>Profile Page</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <td><%= current_user.full_name %></td>
-  </tr>
-    <% current_user.information.reverse.each_with_index do |info, index| %>
-    <%# Only display Available on the most recent post %>
-    <% if index == 0 %>
-  <tr>
-    <th>Available</th>
-    <td><%= info.available %></td>
-  </tr>
-  <% end %>
-  <tr>
-    <th>Previous Employer</th>
-    <td><%= info.employer %> </td>
-  </tr>
-  <tr>
-    <th>Location</th>
-    <td><%= info.location %> </td>
-  </tr>
-  <tr>
-    <th>Summary</th>
-    <td><%= info.summary %> </td>
-  </tr>
-  <tr>
-    <th>Date Finished</th>
-    <td><%= info.finished %> </td>
-  </tr>
-  <tr>
-    <th>Date Started</th>
-    <td><%= info.started %> </td>  
-  </tr>
-  <% end %>
-</table>
+<span> Name</span>
+<div> <%= @user.full_name %> </div>
+
+<span>Available</span>
+<div> <%= @current_information.available %></div  
+
+<span>Previous Employer</span>
+<div> <%= @current_information.employer %> </div> 
+
+<span>Location</span>
+<div> <%= @current_information.location %> </div>
+
+<span>Summary</span>
+<div> <%= @current_information.summary %> </div 
+
+<span>Date Finished</span>
+<div> <%= @current_information.finished %> </div  
+
+<span>Date Started</span>
+<div> <%= @current_information.started %> </div>  
+<hr>
+<% @past_information.each do |info|%>
+<span>Previous Employer</span>
+<div> <%= info.employer %></div>
+<% end %>
 <div>
   <%= link_to "Add New Work History", new_information_path %>
 </div>
@@ -41,6 +31,6 @@
   <%= link_to "Edit Current Work History", edit_information_path%>
 </div>
 <div>
-  <%= link_to "Edit Profile Settings", edit_user_registration_path(current_user) %>
+  <%= link_to "Edit Profile Settings", edit_user_registration_path() %>
 </div>
 

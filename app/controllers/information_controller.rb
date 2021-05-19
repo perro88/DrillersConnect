@@ -1,5 +1,9 @@
 class InformationController < ApplicationController
-  def index; end
+  def index
+    @user = current_user
+    @current_information = Information.gets_current_information(current_user.id)
+    @past_information = Information.gets_previous_information(current_user.id)
+  end
 
   def show; end
 
@@ -18,14 +22,16 @@ class InformationController < ApplicationController
   end
 
   def edit
-    info = User.find(current_user.id).information
-    @info = info[info.length - 1]
+    @info = Information.gets_current_information(current_user.id)
+
+    # @info = Information.find_by(user_id: current_user.id)
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(profile_params)
-      redirect_to @user
+    # @info = Information.find_by(user_id: current_user.id)
+    @info = Information.gets_current_information(current_user.id)
+    if @info.update!(info_params)
+      redirect_to information_index_url
     else
       render action: "edit"
     end
@@ -38,5 +44,4 @@ class InformationController < ApplicationController
   def info_params
     params.require(:information).permit(:available, :employer, :location, :summary, :finished, :started)
   end
-
 end
