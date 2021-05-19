@@ -17,3 +17,6 @@
     <td><%= @job.description %> </td>
   </tr>
 </table>
+<% if @job.user_id == current_user.id %>
+<div><%= link_to "Edit Job", edit_job_path %> </div>
+<% end %>

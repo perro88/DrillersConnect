@@ -1,5 +1,7 @@
 <h1>JOBS</h1>
+<% if user_signed_in? %>
 <p><%= link_to "Add a New Job", new_job_path%> </p>
+<% end %>
 <h2>Current Listings</h2>
 <table>
     <% @users.each do |user| %>

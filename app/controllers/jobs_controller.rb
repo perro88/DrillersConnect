@@ -22,9 +22,18 @@ class JobsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @new_job = Job.find(params[:id])
+  end
 
-  def update; end
+  def update
+    @new_job = Job.find(params[:id])
+    if @new_job.update(job_params)
+      redirect_to @new_job
+    else
+      render action: "edit"
+    end
+  end
 
   def destroy; end
 
