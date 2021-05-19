@@ -9,17 +9,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def profile
-    @profile = User.all
-  end
-
   def new; end
 
   def create; end
 
-  def edit; end
+  def edit
+    @user = User.current_user
+  end
 
-  def update; end
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render action: "edit"
+    end
+  end
 
   def destroy; end
 
