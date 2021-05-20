@@ -1,31 +1,42 @@
 <h1>Profile Page</h1>
-<span> Name</span>
-<div> <%= @user.full_name %> </div>
-
-<span>Available</span>
-<div> <%= @current_information.available %></div  
-
-<span>Previous Employer</span>
-<div> <%= @current_information.employer %> </div> 
-
-<span>Location</span>
-<div> <%= @current_information.location %> </div>
-
-<span>Summary</span>
-<div> <%= @current_information.summary %> </div 
-
-<span>Date Finished</span>
-<div> <%= @current_information.finished %> </div  
-
-<span>Date Started</span>
-<div> <%= @current_information.started %> </div>  
-<hr>
-<% @past_information.each do |info|%>
-<span>Previous Employer</span>
-<div> <%= info.employer %></div>
-<% end %>
 <div>
-  <%= link_to "Add New Work History", new_information_path %>
+  <span> Name</span>
+  <span> <%= @user.full_name %> </span>
+</div>
+<div>
+  <span>Available</span>
+  <span> <%= @current_information.available %></span>
+</div>
+<div>
+  <span>Current Employer</span>
+  <span> <%= @current_information.employer %> </span>
+</div>
+<div>
+  <span>Location</span>
+  <span> <%= @current_information.location %> </span>
+</div>
+<div>
+  <span>Summary</span>
+  <span> <%= @current_information.summary %> </span>
+</div>
+<div>
+  <span>Date Finished</span>
+  <span> <%= @current_information.finished %> </span>
+</div>
+<div>
+  <span>Date Started</span>
+  <span> <%= @current_information.started %> </span>
+</div>
+<hr>
+
+<div>
+  <span>Previous Employer: </span>
+  <% @past_information.each do |info|%>
+  <span><%= link_to "#{info.employer}",  show_information_path(id: [:id]) %></span>
+  <% end %>
+</div>
+<div>
+    <%= link_to "Add New Work History", new_information_path %>
 </div>
 <div>
   <%= link_to "Edit Current Work History", edit_information_path%>
@@ -33,4 +44,3 @@
 <div>
   <%= link_to "Edit Profile Settings", edit_user_registration_path() %>
 </div>
-

@@ -1,11 +1,16 @@
+# Information controller which refers to the profile page in the html
 class InformationController < ApplicationController
+
   def index
     @user = current_user
     @current_information = Information.gets_current_information(current_user.id)
     @past_information = Information.gets_previous_information(current_user.id)
   end
 
-  def show; end
+  def show
+    puts params
+    @info = Information.find(current_user.id)
+  end
 
   def new
     @info = Information.new
