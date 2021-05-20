@@ -1,4 +1,14 @@
 <h1>Profile Page</h1>
+<% if @user.avatar.attached? %>
+<p><%= cl_image_tag @user.avatar.key, crop: :scale, width: 150, cloud_name: 'jimmy4finga' %></p>
+<% end %>
+<p>
+
+<%= form_with model: @user do |f| %>
+    <%= f.file_field :avatar %>
+    <%= f.submit "Update User" %>
+<% end %>
+</p>
 <div>
   <span> Name</span>
   <span> <%= @user.full_name %> </span>

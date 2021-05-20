@@ -34,4 +34,10 @@ class UsersController < ApplicationController
     current_user.add_role :employer
     redirect_to user_path(current_user)
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:avatar)
+  end
 end

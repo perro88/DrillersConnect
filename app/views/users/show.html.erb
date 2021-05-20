@@ -1,4 +1,7 @@
 <h1>Users@Something</h1>
+<% if @user.avatar.attached? %>
+<p><%= cl_image_tag @user.avatar.key, crop: :scale, width: 150, cloud_name: 'jimmy4finga' %></p>
+<% end %>
 <table>
   <tr>
     <th>Name</th>
