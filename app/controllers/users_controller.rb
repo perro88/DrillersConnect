@@ -3,10 +3,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    # @users = User.information.gets_current_information(user_id.id)
   end
 
   def show
     @user = User.find(params[:id])
+    @user_info = Information.gets_current_information(params[:id])
   end
 
   def new; end

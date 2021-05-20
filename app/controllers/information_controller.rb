@@ -29,11 +29,9 @@ class InformationController < ApplicationController
   def edit
     @info = Information.gets_current_information(current_user.id)
 
-    # @info = Information.find_by(user_id: current_user.id)
   end
 
   def update
-    # @info = Information.find_by(user_id: current_user.id)
     @info = Information.gets_current_information(current_user.id)
     if @info.update!(info_params)
       redirect_to information_index_url
