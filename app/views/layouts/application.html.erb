@@ -19,8 +19,8 @@
     <%= link_to "Jobs", jobs_path %>
     <%= link_to "Users", users_path %>
 
-    <% if current_user.has_role? :employer%>
     <% if user_signed_in? %>
+    <% if !current_user.has_role? :employer%>
     <%= link_to "Profile", information_index_path %>
     <% end %>
     <% else %>
