@@ -8,8 +8,7 @@ class InformationController < ApplicationController
   end
 
   def show
-    puts params
-    @info = Information.find(current_user.id)
+    @info = Information.find(params[:id])
   end
 
   def new
@@ -40,7 +39,10 @@ class InformationController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @delete_info = Information.destroy
+    redirect_to information_path
+  end
 
   private
 

@@ -35,7 +35,10 @@ class JobsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @delete_job = Job.destroy
+    redirect_to jobs_path
+  end
 
   private
 

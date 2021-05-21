@@ -19,3 +19,5 @@
     <span>Date Started: </span>
     <span> <%= @info.started %> </span>
   </div>
+
+<%= link_to 'Delete', @delete_info, method: :delete, data: { confirm: "Are you sure?" } %>

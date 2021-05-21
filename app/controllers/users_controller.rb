@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # @users = User.information.gets_current_information(user_id.id)
   end
 
   def show
@@ -28,7 +27,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @delete_user = User.destroy
+    redirect_to users_path
+  end
 
   def become_employer
     current_user.add_role :employer

@@ -1,18 +1,25 @@
 <%# User Index Page %>
 <h1>USERS</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Available</th>
-  </tr>
-  <% @users.each do |user|%>
-  <% if !user.has_role? :employer%>
+<% if current_user.has_role? :admin %>
+  <div>Delete User?</div>
+  <% @users.each do |user| %>
+    <div><%= link_to user.first_name, @delete_user, method: :delete, data: { confirm: "Are you sure?" } %></div>
+  <% end %>
+<% else %>
+  <table>
     <tr>
-      <td><%= link_to user.full_name, user_path(user) %></td>
-      <% if user.information.last %>
-      <td><%= user.information.last.available %></td>
-      <% end %>
+      <th>Name</th>
+      <th>Available</th>
     </tr>
+    <% @users.each do |user|%>
+      <% if !user.has_role? :employer%>
+        <tr>
+          <td><%= link_to user.full_name, user_path(user) %></td>
+          <% if user.information.last %>
+            <td><%= user.information.last.available %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   <% end %>
 </table>
