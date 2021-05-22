@@ -1,13 +1,13 @@
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :user, :job, :information
 
-  def initialize(user, record)
+  def initialize(user, job, information)
     @user = user
-    @record = record
+    @job = job
+    @information = information
   end
 
   def index?
-    false
   end
 
   def show?
@@ -34,16 +34,4 @@ class ApplicationPolicy
     false
   end
 
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
-  end
 end
