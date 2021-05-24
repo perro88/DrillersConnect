@@ -13,12 +13,14 @@
     </tr>
     <% @users.each do |user|%>
       <% if !user.has_role?(:employer) && !user.has_role?(:admin) %>
-        <tr>
-          <td><%= link_to user.full_name, user_path(user) %></td>
-          <% if user.information.last %>
-            <td><%= user.information.last.available %></td>
-          <% end %>
-        </tr>
+        <% if !user.information.empty? %>
+          <tr>
+            <td><%= link_to user.full_name, user_path(user) %></td>
+            <% if user.information.last %>
+              <td><%= user.information.last.available %></td>
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

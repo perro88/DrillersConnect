@@ -7,7 +7,9 @@ class Information < ApplicationRecord
 
   def self.gets_previous_information(user_id)
     current_information = gets_current_information(user_id)
-    Information.where(user_id: user_id).where.not(id: current_information.id)
+    if !current_information.nil?
+      Information.where(user_id: user_id).where.not(id: current_information.id)
+    end
   end
 end
 
