@@ -31,6 +31,8 @@
 <div>
   <span>Previous Employer: </span>
   <% @user.information.each do |info|%>
-    <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>
+    <% if info != @user.information[-1]%>
+      <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>
+    <% end %>
   <% end %>
 </div>
