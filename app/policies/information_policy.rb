@@ -1,7 +1,5 @@
 class InformationPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def destroy?
+    current_user.id == @record.user.id
   end
 end

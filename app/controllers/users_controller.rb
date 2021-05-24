@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def destroy
     @delete_user = User.destroy
+    authorize @delete_user
     redirect_to users_path
   end
 

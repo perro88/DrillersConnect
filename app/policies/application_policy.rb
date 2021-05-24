@@ -1,17 +1,17 @@
 class ApplicationPolicy
-  attr_reader :user, :job, :information
+  attr_reader :user, :record
 
-  def initialize(user, job, information)
+  def initialize(user, record)
     @user = user
-    @job = job
-    @information = information
+    @record = record
   end
 
   def index?
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
