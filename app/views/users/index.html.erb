@@ -12,7 +12,7 @@
       <th>Available</th>
     </tr>
     <% @users.each do |user|%>
-      <% if !user.has_role? :employer%>
+      <% if !user.has_role?(:employer) && !user.has_role?(:admin) %>
         <tr>
           <td><%= link_to user.full_name, user_path(user) %></td>
           <% if user.information.last %>

@@ -1,23 +1,24 @@
-<h1>Information#show</h1>
-  <div>
-    <span>Previous Employer: </span>
-    <span> <%= @info.employer %> </span>
-  </div>
-  <div>
-    <span>Location: </span>
-    <span> <%= @info.location %> </span>
-  </div>
-  <div>
-    <span>Summary: </span>
-    <span> <%= @info.summary %> </span>
-  </div>
-  <div>
-    <span>Date Finished: </span>
-    <span> <%= @info.finished %> </span>
-  </div>
-  <div>
-    <span>Date Started: </span>
-    <span> <%= @info.started %> </span>
-  </div>
-
+<h1><%= "#{@info.user.full_name}" %></h1>
+<div>
+  <span>Previous Employer: </span>
+  <span> <%= @info.employer %> </span>
+</div>
+<div>
+  <span>Location: </span>
+  <span> <%= @info.location %> </span>
+</div>
+<div>
+  <span>Summary: </span>
+  <span> <%= @info.summary %> </span>
+</div>
+<div>
+  <span>Date Finished: </span>
+  <span> <%= @info.finished %> </span>
+</div>
+<div>
+  <span>Date Started: </span>
+  <span> <%= @info.started %> </span>
+</div>
+<% if current_user.id == @info.user.id%>
 <%= link_to 'Delete', @delete_info, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

@@ -1,12 +1,8 @@
-<h1>Users@Something</h1>
+<h1><%= "#{@user.full_name}" %></h1>
 <% if @user.avatar.attached? %>
-<p><%= cl_image_tag @user.avatar.key, crop: :scale, width: 150, cloud_name: 'jimmy4finga' %></p>
+  <p><%= cl_image_tag @user.avatar.key, crop: :scale, width: 150, cloud_name: 'jimmy4finga' %></p>
 <% end %>
 <table>
-  <tr>
-    <th>Name</th>
-    <td><%= @user.full_name %></td>
-  </tr>
   <tr>
     <th>Available</th>
     <td><%= @user_info.available %></td>
@@ -29,6 +25,12 @@
   </tr>
   <tr>
     <th>Date Started</th>
-    <td><%= @user_info.started %> </td>  
+    <td><%= @user_info.started %> </td>
   </tr>
 </table>
+<div>
+  <span>Previous Employer: </span>
+  <% @user.information.each do |info|%>
+    <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>
+  <% end %>
+</div>
