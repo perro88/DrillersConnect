@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @delete_job = Job.destroy
+    @job = Job.destroy(params[:id])
     redirect_to jobs_path
   end
 

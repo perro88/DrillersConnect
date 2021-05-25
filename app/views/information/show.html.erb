@@ -20,5 +20,5 @@
   <span> <%= @info.started %> </span>
 </div>
 <% if current_user.id == @info.user.id%>
-<%= link_to 'Delete', @delete_info, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Delete', show_information_path(@info), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>

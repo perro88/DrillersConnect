@@ -38,7 +38,7 @@ class InformationController < ApplicationController
   end
 
   def destroy
-    @delete_info = Information.destroy
+    @delete_info = Information.destroy(params[:id])
     authorize @delete_info
     redirect_to information_path
   end

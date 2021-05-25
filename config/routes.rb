@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/jobs/:id", to: "jobs#show", as: "job"
   patch "/jobs/:id", to: "jobs#update"
   put "jobs/:id", to: "jobs#update"
-  delete "jobs/:id", to: "jobs#destroy"
+  delete "jobs/:id", to: "jobs#destroy" 
 
   get "/users", to: "users#index", as: "users"
   post "/users", to: "users#create"
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   delete "/users/:id", to: "users#destroy"
 
   post "/users/become_employer", to: "users#become_employer", as: "employer"
+  post "/users/become_user", to: "users#become_user", as: "not_employer"
 
   get "/information", to: "information#index", as: "information_index"
   post "/information", to: "information#create"

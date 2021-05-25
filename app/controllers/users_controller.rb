@@ -28,14 +28,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @delete_user = User.destroy
+    @delete_user = User.destroy(params[:id])
     authorize @delete_user
     redirect_to users_path
   end
 
   def become_employer
     current_user.add_role :employer
-    redirect_to user_path(current_user)
+    redirect_to new_job_path
+  end
+
+  def become_user
+    current_user.remove_role :employer
+    redirect_to information_index_path
   end
 
   private

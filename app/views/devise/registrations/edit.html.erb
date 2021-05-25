@@ -3,6 +3,9 @@
 <% if !current_user.has_role? :employer%>
 <p><%= button_to "Become an Employer", employer_path, method: :post %></p>
 <% end %>
+<% if current_user.has_role? :employer%>
+<%= button_to "Become a User", not_employer_path, method: :post%>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
