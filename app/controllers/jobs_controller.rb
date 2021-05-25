@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @job_user_records = JobUser.where(job_id: params[:id])
   end
 
   def new
@@ -46,6 +47,22 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
 
+  def destroy_applicant
+    @job_user = JobUser.find(params[:id])
+    # referring back to original job
+    @job = @job_user.job
+    @job_user.delete
+
+    redirect_to job_path(@job)
+  end
+
+  def apply_for_job
+    @job_user = JobUser.new
+    @job_user.user_id = current_user.id
+    @job_user.job_id = params[:id]
+    @job_user.save!
+    redirect_to jobs_path
+  end
   private
 
   def job_params

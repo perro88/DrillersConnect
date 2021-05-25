@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :job_users
+
   get "/jobs", to: "jobs#index", as: "jobs"
   post "/jobs", to: "jobs#create"
   get "/jobs/new", to: "jobs#new", as: "new_job"
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   patch "/jobs/:id", to: "jobs#update"
   put "jobs/:id", to: "jobs#update"
   delete "jobs/:id", to: "jobs#destroy" 
+
+  post "/jobs/apply_for_job/:id", to: "jobs#apply_for_job", as: "apply_for_job"
+  delete "/jobs/apply_for_job/:id", to: "jobs#destroy_applicant"
 
   get "/users", to: "users#index", as: "users"
   post "/users", to: "users#create"

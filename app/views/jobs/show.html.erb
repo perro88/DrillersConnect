@@ -17,7 +17,21 @@
     <td><%= @job.description %> </td>
   </tr>
 </table>
+
 <% if @job.user_id == current_user.id %>
-<div><%= link_to "Edit Job", edit_job_path %> </div>
-<div><%= link_to 'Delete', job_path(@job), method: :delete, data: { confirm: "Are you sure?" } %></div>
+  <div><%= link_to "Edit Job", edit_job_path %> </div>
+  <div><%= link_to 'Delete', job_path(@job), method: :delete, data: { confirm: "Are you sure?" } %></div>
+<% end %>
+<% if current_user.has_role? :employer %>
+<div>
+<br>
+<br>
+</div>
+<h2>Job Applicants</h2>
+  <% @job_user_records.each do |job_user| %>
+    <p><%= job_user.user.full_name%> - <%= job_user.user.email %> - <%= link_to 'Delete Applicant', apply_for_job_path(job_user.id), method: :delete, data: { confirm: "Are you sure?" } %></p>
+  <% end %>
+<% end %>
+<% if !current_user.has_role? :employer%>
+  <p><%= button_to "Apply for Job",  apply_for_job_path(@job) , method: :post %></p>
 <% end %>
