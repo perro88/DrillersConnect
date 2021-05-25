@@ -2,12 +2,12 @@
 <% if current_user.has_role? :employer %>
 <p><%= link_to "Add a New Job", new_job_path%> </p>
 <% end %>
-<h2>Current Listings</h2>
+<h3>All Current Listings: </h3>
 <table>
     <% @users.each do |user| %>
     <% user.jobs.each do |list|%>
   <tr>
-    <td> <%= link_to list.position, job_path(list)%></td>
+    <td> <%= link_to list.position, job_path(list)%> - </td>
     <td> <%= list.place %> </td>
   </tr>
   <% end %>

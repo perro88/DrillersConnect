@@ -1,6 +1,5 @@
 # Information controller which refers to the profile page in the html
 class InformationController < ApplicationController
-
   def index
     @user = current_user
     @current_information = Information.gets_current_information(current_user.id)
@@ -27,7 +26,6 @@ class InformationController < ApplicationController
 
   def edit
     @info = Information.gets_current_information(current_user.id)
-
   end
 
   def update

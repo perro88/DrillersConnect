@@ -1,6 +1,8 @@
 <h1>Welcome to Drillers Connect</h1>
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.yb5WgQscW4TGA4k6EW4d4AHaE8%26pid%3DApi&f=1" alt="Drill Rig">
 <h2>Jobs Currently Available</h2>
 <% @jobs.each do |job|%>
 <h3><%= link_to job.position, job_path(job) %></h3>
 <p><%= job.description %></p>
 <% end %>
+<p>Want to become an employer? Just visit your <%= link_to "Profile Settings", edit_user_registration_path() %> and select 'Become an Employer'</p>
