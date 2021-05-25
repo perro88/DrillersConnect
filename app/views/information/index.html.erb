@@ -39,8 +39,8 @@
 </div>
 <hr>
 <div>
-    <% @past_information.each do |info|%>
     <span>Previous Employer: </span>
+    <% @past_information.each do |info|%>
       <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>
     <% end %>
 </div>
