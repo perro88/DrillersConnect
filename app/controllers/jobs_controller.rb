@@ -61,11 +61,16 @@ class JobsController < ApplicationController
     @job_user.user_id = current_user.id
     @job_user.job_id = params[:id]
     @job_user.save!
+    successfully_applied_for_job
     redirect_to jobs_path
   end
   private
 
   def job_params
     params.require(:job).permit(:position, :place, :contract, :description)
+  end
+
+  def successfully_applied_for_job
+    flash[:alert] = "You have applied for the job :)"
   end
 end
