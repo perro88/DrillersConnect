@@ -29,7 +29,9 @@
   </tr>
 </table>
 <div>
-  <span>Previous Employer: </span>
+  <% if @user.information.count > 1 %>
+    <span>Previous Employer: </span>
+  <% end %>
   <% @user.information.each do |info|%>
     <% if info != @user.information[-1]%>
       <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>

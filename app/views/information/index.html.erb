@@ -13,37 +13,39 @@
   <span> <%= @user.full_name %> </span>
 </div>
 <% if !@current_information.nil?%>
-<div>
-  <span>Available: </span>
-  <span> <%= @current_information.available %></span>
-</div>
-<div>
-  <span>Current Employer: </span>
-  <span> <%= @current_information.employer %> </span>
-</div>
-<div>
-  <span>Location: </span>
-  <span> <%= @current_information.location %> </span>
-</div>
-<div>
-  <span>Summary: </span>
-  <span> <%= @current_information.summary %> </span>
-</div>
-<div>
-  <span>Date Finished: </span>
-  <span> <%= @current_information.finished %> </span>
-</div>
-<div>
-  <span>Date Started: </span>
-  <span> <%= @current_information.started %> </span>
-</div>
-<hr>
-<div>
-    <span>Previous Employer: </span>
+  <div>
+    <span>Available: </span>
+    <span> <%= @current_information.available %></span>
+  </div>
+  <div>
+    <span>Current Employer: </span>
+    <span> <%= @current_information.employer %> </span>
+  </div>
+  <div>
+    <span>Location: </span>
+    <span> <%= @current_information.location %> </span>
+  </div>
+  <div>
+    <span>Summary: </span>
+    <span> <%= @current_information.summary %> </span>
+  </div>
+  <div>
+    <span>Date Finished: </span>
+    <span> <%= @current_information.finished %> </span>
+  </div>
+  <div>
+    <span>Date Started: </span>
+    <span> <%= @current_information.started %> </span>
+  </div>
+  <hr>
+  <div>
+    <% if @user.information.count > 1 %>
+      <span>Previous Employer: </span>
+    <% end %>
     <% @past_information.each do |info|%>
       <span><%= link_to "#{info.employer}",  show_information_path(info) %></span>
     <% end %>
-</div>
+  </div>
 <% end %>
 <div>
   <%= link_to "Add New Work", new_information_path %>
