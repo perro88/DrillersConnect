@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # A flash to notify a user they cannot access that page
+  # Because of Pundit policies
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)
