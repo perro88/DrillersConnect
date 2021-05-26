@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   put "jobs/:id", to: "jobs#update"
   delete "jobs/:id", to: "jobs#destroy" 
 
-  post "/jobs/apply_for_job/:id", to: "jobs#apply_for_job", as: "apply_for_job"
-  delete "/jobs/apply_for_job/:id", to: "jobs#destroy_applicant"
+  post "/jobs/:id/apply_for_job/", to: "jobs#apply_for_job", as: "apply_for_job"
+  delete "/jobs/:id/apply_for_job/", to: "jobs#destroy_applicant"
 
   get "/users", to: "users#index", as: "users"
   post "/users", to: "users#create"
