@@ -17,17 +17,16 @@
     <td><%= @job.description %> </td>
   </tr>
 </table>
-
 <% if @job.user_id == current_user.id %>
   <div><%= link_to "Edit Job", edit_job_path %> </div>
   <div><%= link_to 'Delete', job_path(@job), method: :delete, data: { confirm: "Are you sure?" } %></div>
-<% end %>
-<% if current_user.has_role? :employer %>
-<div>
-<br>
-<br>
-</div>
-<h2>Job Applicants</h2>
+  <% if current_user.has_role? :employer %>
+  <% end %>
+  <div>
+    <br>
+    <br>
+  </div>
+  <h2>Job Applicants</h2>
   <% @job_user_records.each do |job_user| %>
     <p><%= link_to job_user.user.full_name, user_path(job_user.user.id) %> - <%= job_user.user.email %> - <%= link_to 'Delete Applicant', apply_for_job_path(job_user.id), method: :delete, data: { confirm: "Are you sure?" } %></p>
   <% end %>
